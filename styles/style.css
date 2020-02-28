@@ -1,6 +1,7 @@
 *, *::before, *::after {
   max-width: 55ch;
   box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 html,
@@ -28,6 +29,8 @@ html {
   --primary-color: #b95ec2;
   --primary-light: #ffd4ff;
   --primary-dark: #74197f;
+
+  --measure: 55ch;
 
   /* Space sizes */
   --s0: 0px;
@@ -73,9 +76,19 @@ footer {
 
 
 
+.measure { max-width: var(--measure); }
 
 
+/*****
+* Center
+*****/
 
+.center {
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--measure);
+}
 
 /*****
 * Sidebar
@@ -92,14 +105,30 @@ footer {
 }
 
 .with-sidebar > * > * {
-  margin: calc(var(--s3) / 2);
-  flex-basis: 20rem;
+  padding: calc(var(--s3) / 2);
   flex-grow: 1;
+  background-color: var(--primary-color);
 }
 
 .with-sidebar > * > :last-child {
-  /* border-left: solid black 2px; */
   flex-basis: 0;
   flex-grow: 999;
   min-width: calc(60% - var(--s3));
+  background-color: var(--primary-light);
+}
+
+/*****
+* Switcher
+*****/
+
+.switcher > * {
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc((var(--s3) / 2) * -1);
+}
+
+.switcher > * > * {
+  flex-grow: 1;
+  flex-basis: calc((calc(var(--measure) / 2) - (100% - var(--s3))) * 999);
+  margin: calc(var(--s3) / 2);
 }
