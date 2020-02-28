@@ -57,6 +57,9 @@ h3 { font-size: 1.5rem; }
 h4 { font-size: 1.125rem; }
 blockquote { font-size: 1.5rem; }
 
+h1, h2, h3, h4 { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+
+
 body {
   display: flex;
   min-height: 100vh;
@@ -72,6 +75,7 @@ footer {
   font-size: var(--fs0);
   width: 100vw;
   padding: var(--s3) var(--s4);
+  margin-top: auto;
 }
 
 
@@ -105,7 +109,7 @@ footer {
 }
 
 .with-sidebar > * > * {
-  padding: calc(var(--s3) / 2);
+  padding: calc(var(--s3) / .75);
   flex-grow: 1;
   background-color: var(--primary-color);
 }
@@ -118,17 +122,21 @@ footer {
 }
 
 /*****
-* Switcher
+* Stack
 *****/
 
-.switcher > * {
+.stack {
+  --space: 1.5rem;
   display: flex;
-  flex-wrap: wrap;
-  margin: calc((var(--s3) / 2) * -1);
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.switcher > * > * {
-  flex-grow: 1;
-  flex-basis: calc((calc(var(--measure) / 2) - (100% - var(--s3))) * 999);
-  margin: calc(var(--s3) / 2);
+.stack > * {
+  margin-top: 0;
+  margin-bottom: 0;
+} 
+
+.stack > * + * {
+  margin-top: var(--space);
 }
